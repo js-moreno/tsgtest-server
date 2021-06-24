@@ -1,0 +1,21 @@
+# Images
+Pillow==7.2.0
+
+# Django
+Django==3.1.10
+
+# Django REST Framework
+djangorestframework==3.12
+
+# Json:API
+djangorestframework-jsonapi==4.1.0
+
+# API Documentation
+drf-yasg==1.20.0
+drf-yasg-json-api==0.8.1
+
+# Environment
+django-environ==0.4.5
+
+# Filters
+django-filter==2.4.0

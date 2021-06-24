@@ -1,0 +1,24 @@
+# Django 
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+# Sqlite
+db.sqlite3
+db.sqlite3-journal
+
+# Assets
+staticfiles/*
+media/*
+
+# Translations
+*.mo
+
+# Environments
+.venv
+.vscode
+.env
+
+# keep folders 
+!.gitkeep

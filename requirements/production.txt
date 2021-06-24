@@ -1,0 +1,16 @@
+-r ./base.txt
+
+# Gunicorn
+gunicorn==20.0.4
+
+# Static files
+whitenoise==5.2.0
+
+# PostgreSQL
+psycopg2==2.8.6
+
+# Database URL
+dj-database-url==0.5.0
+
+# CORS
+django-cors-headers==3.5.0
