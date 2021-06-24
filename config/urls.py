@@ -26,7 +26,11 @@ from rest_framework.routers import DefaultRouter
 # Urls
 from documentation.urls import url_documentation
 
-# from apps.providers.urls import provider_router
+# Routers
+from apps.accounts.urls import router as router_accounts
+
+router = DefaultRouter(trailing_slash=False)
+router.registry.extend(router_accounts.registry)
 
 # Administration site
 admin.site.site_header = settings.APP_NAME
@@ -37,4 +41,5 @@ urlpatterns = [
     path("", RedirectView.as_view(url="documentation/", permanent=False), name="index"),
     path("", include((url_documentation, "documentation"), namespace="documentation")),
     path("admin/", admin.site.urls),
+    path("", include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

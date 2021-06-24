@@ -4,13 +4,20 @@
 from django.urls import path
 from django.conf import settings
 
-# DRF
-from rest_framework import permissions
-from rest_framework import authentication
-
 # Drf Yasg
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from drf_yasg.generators import OpenAPISchemaGenerator
+
+
+class CustomSchemaGenerator(OpenAPISchemaGenerator):
+    def get_schema(self, *args, **kwargs):
+        schema = super().get_schema(*args, **kwargs)
+
+        schema["x-tagGroups"] = [
+            {"name": "Accounts", "tags": ["users"]},
+        ]
+        return schema
 
 
 schema_view = get_schema_view(
@@ -48,6 +55,7 @@ schema_view = get_schema_view(
         ),
     ),
     public=True,
+    generator_class=CustomSchemaGenerator,
 )
 
 url_documentation = [
