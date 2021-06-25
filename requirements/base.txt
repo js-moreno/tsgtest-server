@@ -22,3 +22,6 @@ django-filter==2.4.0
 
 # Oauth2
 django-oauth-toolkit==1.5.0
+
+# Cryptography
+django_cryptography==1.0
