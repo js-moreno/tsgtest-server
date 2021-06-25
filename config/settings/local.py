@@ -15,10 +15,5 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # Cache
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache", "LOCATION": ""}}
 
-# Email
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-EMAIL_HOST = "localhost"
-EMAIL_PORT = 1025
-
 # django-extensions
 INSTALLED_APPS += ["django_extensions"]
