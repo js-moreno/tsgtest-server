@@ -26,6 +26,9 @@ from rest_framework.routers import DefaultRouter
 # Urls
 from documentation.urls import url_documentation
 
+# Oauth2
+import oauth2_provider.views as oauth2_views
+
 # Routers
 from apps.accounts.urls import router as router_accounts
 from apps.finances.urls import router as router_finances
@@ -44,4 +47,5 @@ urlpatterns = [
     path("", include((url_documentation, "documentation"), namespace="documentation")),
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
+    path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

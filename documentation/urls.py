@@ -46,7 +46,11 @@ schema_view = get_schema_view(
     # Administration
 
     The administration site is an internal management tool. Here you can use your staff account and configure your API by searching, creating, changing and deleting records from a simple interface. Let's go to [Admin site](/admin).
-        
+
+    # Authentication
+    
+    The authentication protocol used was **OAuth 2.0** accoriding to [RFC 6749](https://tools.ietf.org/html/rfc6749) with OpenID Connect ([OIDC](https://openid.net/connect/)) support
+
         """.format(
             app=settings.APP_NAME
         ),

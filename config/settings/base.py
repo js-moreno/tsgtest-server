@@ -48,6 +48,7 @@ THIRD_PARTY_APPS = [
     "drf_yasg",
     "rest_framework",
     "django_filters",
+    "oauth2_provider",
 ]
 
 MY_APPS = [
@@ -151,6 +152,11 @@ MEDIA_URL = "/media/"
 
 # Django Rest Framework
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_RENDERER_CLASSES": (
         "rest_framework_json_api.renderers.JSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
@@ -205,7 +211,33 @@ SWAGGER_SETTINGS = {
         "drf_yasg.inspectors.DjangoRestResponsePagination",
         "drf_yasg.inspectors.CoreAPICompatInspector",
     ],
+    "SECURITY_DEFINITIONS": {
+        "OAuth2": {
+            "type": "oauth2",
+            "flow": "password",
+            "tokenUrl": "/o/token/",
+            "scopes": {
+                "openid": "OpenID Connect scope",
+                "read": "Reading the full information about a single resource.",
+                "write": "Modifying the resource in any way e.g. creating, editing, or deleting",
+                "read": "Reading the information about a single resource.",
+                "write": "Modifying the resource (creating, editing, or deleting)",
+            },
+        }
+    },
 }
 
 
 REDOC_SETTINGS = {"LAZY_RENDERING": True, "NATIVE_SCROLLBARS": True}
+
+# Oauth2
+OAUTH2_PROVIDER = {
+    "OIDC_ENABLED": True,
+    "OIDC_RSA_PRIVATE_KEY": env.str("OIDC_RSA_PRIVATE_KEY", multiline=True),
+    "OAUTH2_VALIDATOR_CLASS": "config.oauth.CustomOAuth2Validator",
+    "SCOPES": {
+        "openid": "OpenID Connect scope",
+        "read": "Reading the full information about a single resource.",
+        "write": "Modifying the resource in any way e.g. creating, editing, or deleting",
+    },
+}
