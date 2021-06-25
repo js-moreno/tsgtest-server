@@ -16,6 +16,7 @@ class CustomSchemaGenerator(OpenAPISchemaGenerator):
 
         schema["x-tagGroups"] = [
             {"name": "Accounts", "tags": ["users"]},
+            {"name": "Finances", "tags": ["credit-cards"]},
         ]
         return schema
 

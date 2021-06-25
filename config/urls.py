@@ -28,9 +28,11 @@ from documentation.urls import url_documentation
 
 # Routers
 from apps.accounts.urls import router as router_accounts
+from apps.finances.urls import router as router_finances
 
 router = DefaultRouter(trailing_slash=False)
 router.registry.extend(router_accounts.registry)
+router.registry.extend(router_finances.registry)
 
 # Administration site
 admin.site.site_header = settings.APP_NAME
