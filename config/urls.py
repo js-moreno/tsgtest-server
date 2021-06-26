@@ -18,16 +18,12 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from django.views.generic.base import RedirectView
 
 # Django rest framework
 from rest_framework.routers import DefaultRouter
 
 # Urls
 from documentation.urls import url_documentation
-
-# Oauth2
-import oauth2_provider.views as oauth2_views
 
 # Routers
 from apps.accounts.urls import router as router_accounts
@@ -43,7 +39,6 @@ admin.site.site_title = settings.APP_NAME
 admin.site.site_url = "/documentation"
 
 urlpatterns = [
-    path("", RedirectView.as_view(url="documentation/", permanent=False), name="index"),
     path("", include((url_documentation, "documentation"), namespace="documentation")),
     path("admin/", admin.site.urls),
     path("", include(router.urls)),

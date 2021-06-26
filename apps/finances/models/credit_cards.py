@@ -2,7 +2,6 @@
 
 # Django
 from django.db import models
-import django.utils.timezone as timezone
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import (
     MinLengthValidator,
