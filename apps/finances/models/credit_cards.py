@@ -54,7 +54,15 @@ class CreditCard(models.Model):
             ],
         )
     )
-    user = models.ForeignKey("accounts.User", on_delete=models.CASCADE, verbose_name=_("User"))
+    is_principal = models.BooleanField(
+        verbose_name=_("Is principal?"),
+        default=False,
+    )
+    user = models.ForeignKey(
+        "accounts.User",
+        on_delete=models.CASCADE,
+        verbose_name=_("User"),
+    )
 
     @property
     def truncated_number(self):
@@ -74,6 +82,20 @@ class CreditCard(models.Model):
 
     customer.fget.short_description = _("Customer")
 
+    def save(self, *args, **kwargs):
+        if self.is_principal:
+            try:
+                temp = CreditCard.objects.get(is_principal=True, user=self.user)
+                if self != temp:
+                    temp.is_principal = False
+                    temp.save()
+            except CreditCard.DoesNotExist:
+                pass
+        super(CreditCard, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name = _("Credit card")
         verbose_name_plural = _("Credit cards")
+
+    def __str__(self):
+        return self.franchise + " " + self.truncated_number

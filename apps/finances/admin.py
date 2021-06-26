@@ -11,7 +11,7 @@ from apps.finances.models import CreditCard
 
 class CreditCardAdmin(admin.ModelAdmin):
 
-    list_display = ("truncated_number", "franchise", "due_date", "customer")
+    list_display = ("truncated_number", "franchise", "due_date", "customer", "is_principal")
     list_filter = ("franchise", "due_date_year", "due_date_month")
     search_fields = ("user__first_name", "user__last_name")
 
