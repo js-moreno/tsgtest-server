@@ -34,4 +34,4 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @swagger_auto_schema(security=[])
     def create(self, request, *args, **kwargs):
-        return super(UserViewSet, self).create()
+        return super(UserViewSet, self).create(request)
