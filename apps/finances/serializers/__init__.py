@@ -1,3 +1,6 @@
-from .credit_cards import CreditCardModelSerializer
+from .credit_cards import CreditCardModelSerializer, CreditCardSuperUserModelSerializer
 
-__all__ = (CreditCardModelSerializer,)
+__all__ = (
+    CreditCardModelSerializer,
+    CreditCardSuperUserModelSerializer,
+)

@@ -5,5 +5,5 @@ class CustomOAuth2Validator(OAuth2Validator):
     def get_additional_claims(self, request):
         return {
             "first_name": request.user.first_name,
-            "is_staff": request.user.is_staff,
+            "is_superuser": request.user.is_superuser,
         }

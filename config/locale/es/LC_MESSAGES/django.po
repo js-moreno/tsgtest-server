@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-24 22:55-0500\n"
+"POT-Creation-Date: 2021-06-25 20:03-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,6 +86,30 @@ msgstr "Tarjeta de credito"
 
 msgid "Credit cards"
 msgstr "Tarjetas de crédito"
+
+msgid "You only can use numbers as credit card number"
+msgstr "Solo puedes usar números como número de tarjeta de crédito"
+
+msgid "Your credit card number must be between 16 and 19 digits"
+msgstr "Tu número de tarjeta de crédito debe tener entre 16 y 19 digitos"
+
+msgid "You only can use numbers as verification code"
+msgstr "Solo puedes usar números como código de verificación"
+
+msgid "Your verification code must be between 3 and 4 digits"
+msgstr "Tu código de verificación debe tener entre 3 y 4 digitos"
+
+msgid "The credit card number must contain only numbers"
+msgstr "El número de tarjeta de crédito debe contener solo números"
+
+msgid "The credit card number must be between 16 and 19 digits"
+msgstr "El número de tarjeta de crédito debe tener entre 16 y 19 digitos"
+
+msgid "The verification code must contain only numbers"
+msgstr "El código de verificación debe contener solo números"
+
+msgid "The verification code must be between 3 and 4 digits"
+msgstr "El código de verificación debe tener entre 3 y 4 digitos"
 
 msgid "You only can use numbers in this field"
 msgstr "Solo puedes usar números en este campo"
