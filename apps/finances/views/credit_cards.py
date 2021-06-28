@@ -8,7 +8,7 @@ from rest_framework import viewsets, mixins
 from apps.finances.models import CreditCard
 
 # Serializers
-from apps.finances.serializers import CreditCardModelSerializer, CreditCardSuperUserModelSerializer
+from apps.finances.serializers import CreditCardModelSerializer
 
 
 class CreditCardViewSet(
@@ -20,14 +20,7 @@ class CreditCardViewSet(
 ):
     """ Credit card query views set"""
 
-    def get_serializer_class(self):
-        try:
-            self.request.user
-        except:
-            pass
-        if self.request.user.is_superuser:
-            return CreditCardSuperUserModelSerializer
-        return CreditCardModelSerializer
+    serializer_class = CreditCardModelSerializer
 
     def get_queryset(self):
         if self.request.user.is_superuser:
