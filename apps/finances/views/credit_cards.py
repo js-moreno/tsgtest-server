@@ -21,9 +21,6 @@ class CreditCardViewSet(
     """ Credit card query views set"""
 
     def get_serializer_class(self):
-        import ipdb
-
-        ipdb.set_trace()
         try:
             self.request.user
         except:
