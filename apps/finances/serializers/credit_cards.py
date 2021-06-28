@@ -19,6 +19,7 @@ class CreditCardModelSerializer(serializers.ModelSerializer):
     truncated_number = serializers.ReadOnlyField()
     due_date = serializers.ReadOnlyField()
     user = serializers.PrimaryKeyRelatedField(read_only=True)
+    customer = serializers.ReadOnlyField()
 
     class Meta:
         model = CreditCard
@@ -50,6 +51,7 @@ class CreditCardSuperUserModelSerializer(serializers.ModelSerializer):
     verification_code = serializers.CharField(write_only=True)
     truncated_number = serializers.ReadOnlyField()
     due_date = serializers.ReadOnlyField()
+    customer = serializers.ReadOnlyField()
 
     class Meta:
         model = CreditCard
